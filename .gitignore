@@ -1,6 +1,7 @@
 .vscode/
-.third_party/
-.out/
-.references/
+
+third_party/
+out/
+references/
 
 CMakePresets.json
