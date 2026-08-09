@@ -1,0 +1,6 @@
+.vscode/
+.third_party/
+.out/
+.references/
+
+CMakePresets.json

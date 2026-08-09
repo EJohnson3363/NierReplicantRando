@@ -1,0 +1,26 @@
+[
+{
+  "directory": "C:/Users/isjee/Documents/MINE/Code/NierReplicantRando/out/build/GCC 14.2.0 x86_64-w64-mingw32 (ucrt64)",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DNOMINMAX -DNierReplicantRando_EXPORTS -D_CRT_SECURE_NO_WARNINGS @CMakeFiles\\NierReplicantRando.dir\\includes_CXX.rsp -g -std=c++20 -o CMakeFiles\\NierReplicantRando.dir\\src\\Plugin.cpp.obj -c C:\\Users\\isjee\\Documents\\MINE\\Code\\NierReplicantRando\\src\\Plugin.cpp",
+  "file": "C:/Users/isjee/Documents/MINE/Code/NierReplicantRando/src/Plugin.cpp",
+  "output": "CMakeFiles/NierReplicantRando.dir/src/Plugin.cpp.obj"
+},
+{
+  "directory": "C:/Users/isjee/Documents/MINE/Code/NierReplicantRando/out/build/GCC 14.2.0 x86_64-w64-mingw32 (ucrt64)",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DNOMINMAX -DNierReplicantRando_EXPORTS -D_CRT_SECURE_NO_WARNINGS @CMakeFiles\\NierReplicantRando.dir\\includes_CXX.rsp -g -std=c++20 -o CMakeFiles\\NierReplicantRando.dir\\src\\Lunartear.cpp.obj -c C:\\Users\\isjee\\Documents\\MINE\\Code\\NierReplicantRando\\src\\Lunartear.cpp",
+  "file": "C:/Users/isjee/Documents/MINE/Code/NierReplicantRando/src/Lunartear.cpp",
+  "output": "CMakeFiles/NierReplicantRando.dir/src/Lunartear.cpp.obj"
+},
+{
+  "directory": "C:/Users/isjee/Documents/MINE/Code/NierReplicantRando/out/build/GCC 14.2.0 x86_64-w64-mingw32 (ucrt64)",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DNOMINMAX -DNierReplicantRando_EXPORTS -D_CRT_SECURE_NO_WARNINGS @CMakeFiles\\NierReplicantRando.dir\\includes_CXX.rsp -g -std=c++20 -o CMakeFiles\\NierReplicantRando.dir\\src\\Player.cpp.obj -c C:\\Users\\isjee\\Documents\\MINE\\Code\\NierReplicantRando\\src\\Player.cpp",
+  "file": "C:/Users/isjee/Documents/MINE/Code/NierReplicantRando/src/Player.cpp",
+  "output": "CMakeFiles/NierReplicantRando.dir/src/Player.cpp.obj"
+},
+{
+  "directory": "C:/Users/isjee/Documents/MINE/Code/NierReplicantRando/out/build/GCC 14.2.0 x86_64-w64-mingw32 (ucrt64)",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DNOMINMAX -DNierReplicantRando_EXPORTS -D_CRT_SECURE_NO_WARNINGS @CMakeFiles\\NierReplicantRando.dir\\includes_CXX.rsp -g -std=c++20 -o CMakeFiles\\NierReplicantRando.dir\\third_party\\LunarTearLoader\\src\\Game\\Globals.cpp.obj -c C:\\Users\\isjee\\Documents\\MINE\\Code\\NierReplicantRando\\third_party\\LunarTearLoader\\src\\Game\\Globals.cpp",
+  "file": "C:/Users/isjee/Documents/MINE/Code/NierReplicantRando/third_party/LunarTearLoader/src/Game/Globals.cpp",
+  "output": "CMakeFiles/NierReplicantRando.dir/third_party/LunarTearLoader/src/Game/Globals.cpp.obj"
+}
+]
