@@ -2,6 +2,5 @@
 
 third_party/
 out/
+build/
 references/
-
-CMakePresets.json

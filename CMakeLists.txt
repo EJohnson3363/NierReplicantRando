@@ -12,20 +12,13 @@ endif()
 
 add_library(NierReplicantRando SHARED
   src/Plugin.cpp
-  src/Lunartear.cpp
-  src/Player.cpp
-  third_party/LunarTearLoader/src/Game/Globals.cpp
-  include/LunarTear.h
-  include/Player.h
-  include/Inventory.h
-  include/Weapons.h
-  include/Words.h
-  include/Game.h
+  src/LT/LunarTear.cpp
+  src/Game/Game.cpp
 )
 
 target_include_directories(NierReplicantRando PRIVATE
   ${CMAKE_CURRENT_SOURCE_DIR}
-  ${CMAKE_CURRENT_SOURCE_DIR}/include
+  ${CMAKE_CURRENT_SOURCE_DIR}/src
   ${CMAKE_CURRENT_SOURCE_DIR}/third_party/LunarTearLoader/src
 )
 
