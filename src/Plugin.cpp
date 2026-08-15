@@ -1,5 +1,5 @@
 /******************** PLUGIN ********************/
-// Code by: Regent (GitHub user EJohnson3363)
+// Author: Regent (GitHub user EJohnson3363)
 //
 // Randomizer plugin to be used with Lunar Tear
 // Lunar Tear by ifa-ifa:
@@ -11,17 +11,18 @@
 
 namespace{
     void Update(void*){
-        Game::Update();
+        Game::UpdateGameState();
         LT::QueuePhaseUpdate(Update, nullptr);
     }
 }
 
+
 // Main runtime code
 extern "C" __declspec(dllexport)
 void LunarTearPluginInit(const LunarTearAPI* api, LT_PluginHandle handle){
-    LT::Initialize(api, handle);
+    LT::LT_Init(api, handle);
     LT::LogInfo("=== Randomizer plugin starting ===");
 
-    Game::Initialize();
+    Game::Game_Init();
     LT::QueuePhaseUpdate(Update, nullptr);
 }

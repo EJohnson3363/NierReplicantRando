@@ -1,5 +1,5 @@
 /******************** GAME ********************/
-// Handles general game functions
+// Reads game state
 //
 /**********************************************/
 
@@ -11,18 +11,30 @@
 namespace Game{
     // State machine
     enum class State{
-        WaitingForSave, // Not active
-        Playing         // Active
+        WaitingForGameplay, // Not active
+        Playing             // Active
     };
 
-    void Initialize();  // Init
+    void Game_Init();
 
-    void Update();      // Updates game state
-    bool IsActive();    // Checks if save file has been loaded
+    void UpdateGameState();
+    bool IsGameplayActive();
 }
+
+/******************** SAVE ********************/
+// Reads save file data
+//
+/**********************************************/
 
 // Current player's save data
 namespace Game::Save{
-    PlayerSaveData* Data(); // Gets current player save data
-    bool IsAvailable();     // Checks if player save data exists
+    PlayerSaveData* GetPlayerData();
+    bool IsPlayerDataAvailable();
+
+    int GetGold();
+    int GetLevel();
+    int GetCurrentWeapon();
+
+    const char* GetCurrentPhase();
+    const char* GetPlayerName();
 }
