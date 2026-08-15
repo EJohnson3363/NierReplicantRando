@@ -22,7 +22,7 @@
 
 namespace Game::Weapons{
     uint32_t GetWeaponLevel(uint32_t weaponID){
-        return;
+        return 0;
     }
 
     bool HasWeapon(uint32_t weaponID){

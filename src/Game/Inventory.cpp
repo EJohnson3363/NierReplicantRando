@@ -1,10 +1,6 @@
 /******************** INVENTORY ********************/
 // Inventory I/O for item IDs 0-767
 //
-// TODO:
-// - GiveItem()
-// - RemoveItem()
-//
 /***************************************************/
 
 #include "Inventory.h"
@@ -12,9 +8,7 @@
 namespace Game::Inventory{
     uint32_t GetItemCount(uint32_t itemID){
         // Invalid data
-        if(IsItemData(itemID) == false){
-            return 0;
-        }
+        if(IsItemData(itemID) == false){return 0;}
 
         // Finds item count
         auto* game = LT::API()->game;
@@ -27,11 +21,10 @@ namespace Game::Inventory{
         return GetItemCount(itemID) > 0;
     }
 
+    // Low level
     bool SetItemCount(uint32_t itemID, uint8_t count){
         // Invalid data
-        if(IsItemData(itemID) == false){
-            return false;
-        }
+        if(IsItemData(itemID) == false){return false;}
 
         auto* game = LT::API()->game;
         auto* playerData = Game::Save::GetPlayerData();
@@ -40,14 +33,18 @@ namespace Game::Inventory{
         return true;
     }
 
-    bool GiveItem(uint32_t itemID, uint8_t count){
-        // TODO: route through the game's high-level AddPlayerItem path
-        return false;
+    // High level
+    uint32_t GiveItem(uint32_t itemID, uint8_t count){
+        if(IsItemData(itemID) == false || count == 0){return 0;}
+
+        return Game::API::AddPlayerItem(itemID, count);
     }
 
-    bool RemoveItem(uint32_t itemID, uint8_t count){
-        // TODO: route through the game's high-level RemovePlayerItem path
-        return false;
+    // High level
+    uint32_t RemoveItem(uint32_t itemID, uint8_t count){
+        if(IsItemData(itemID) == false || count == 0){return 0;}
+
+        return Game::API::RemovePlayerItem(itemID, count);
     }
 
     bool IsItemData(uint32_t itemID){

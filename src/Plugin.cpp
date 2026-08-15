@@ -8,10 +8,38 @@
 /************************************************/
 
 #include "Game/Game.h"
+#include "Game/Inventory.h"
+// Should eventually include "Randomizer" files
 
 namespace{
+    bool wasGameplayActive = false;
+
     void Update(void*){
+        // Update state machine
         Game::UpdateGameState();
+
+        // Call funct only when gameplay becomes active
+        const bool isGameplayActive = Game::IsGameplayActive();
+        if(isGameplayActive && !wasGameplayActive){
+            const auto before = Game::Inventory::GetItemCount(193);
+            const auto added = Game::Inventory::GiveItem(193, 10);
+            const auto afterGive = Game::Inventory::GetItemCount(193);
+            const auto removed = Game::Inventory::RemoveItem(193, 10);
+            const auto afterRemove = Game::Inventory::GetItemCount(193);
+
+            LT::LogInfo(
+                "GiveItem: " + std::to_string(before) +
+                " -> " + std::to_string(afterGive) +
+                " (added " + std::to_string(added) + ")");
+
+            LT::LogInfo(
+                "RemoveItem: " + std::to_string(afterGive) +
+                " -> " + std::to_string(afterRemove) +
+                " (removed " + std::to_string(removed) + ")");
+        }
+        wasGameplayActive = isGameplayActive;
+
+        // Wait for phase update
         LT::QueuePhaseUpdate(Update, nullptr);
     }
 }

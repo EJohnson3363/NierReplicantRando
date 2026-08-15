@@ -13,7 +13,7 @@
 // Flag management
 namespace Game::Flags{
     bool FlagIsSet(uint32_t flagID){
-        return;
+        return false;
     }
 
     void SetFlag(uint32_t flagID){

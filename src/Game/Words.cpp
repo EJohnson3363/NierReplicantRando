@@ -11,7 +11,7 @@
 
 namespace Game::Words{
     bool HasWord(uint32_t wordID){
-        return;
+        return false;
     }
 
     void GiveWord(uint32_t wordID){

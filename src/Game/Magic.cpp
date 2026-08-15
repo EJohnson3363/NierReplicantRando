@@ -15,7 +15,7 @@
 
 namespace Game::Magic{
     bool HasMagic(uint32_t magicID){
-        return;
+        return false;
     }
 
     void GiveMagic(uint32_t magicID){

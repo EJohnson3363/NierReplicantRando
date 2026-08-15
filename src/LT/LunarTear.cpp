@@ -13,8 +13,8 @@
 
 // Private
 namespace{
-    const LunarTearAPI* s_api = nullptr;    // Pointer to LunarTearAPI
-    LT_PluginHandle s_handle = nullptr;     // Current plugin handle
+    const LunarTearAPI* LT_API_ptr = nullptr;   // Pointer to LunarTearAPI
+    LT_PluginHandle plugin_handle = nullptr;    // Current plugin handle
 }
 
 // Public
@@ -25,38 +25,38 @@ namespace LT{
         assert(api->game != nullptr);
 
         // Init
-        s_api = api;
-        s_handle = handle;
+        LT_API_ptr = api;
+        plugin_handle = handle;
     }
 
     // Returns current LunarTearAPI instance
     const LunarTearAPI* API(){
-        assert(s_api);
-        return s_api;
+        assert(LT_API_ptr);
+        return LT_API_ptr;
     }
 
     // Update-task wrapper
     void QueuePhaseUpdate(LT_UpdateFunc func, void* userData){
-        API()->QueuePhaseUpdateTask(s_handle, func, userData);
+        API()->QueuePhaseUpdateTask(plugin_handle, func, userData);
     }
 
     // Prints info message to LunarTear logs
     void LogInfo(std::string_view message){
-        API()->Log(s_handle, LT_LOG_INFO, message.data());
+        API()->Log(plugin_handle, LT_LOG_INFO, message.data());
     }
 
     // Prints warning message to LunarTear logs
     void LogWarning(std::string_view message){
-        API()->Log(s_handle, LT_LOG_WARNING, message.data());
+        API()->Log(plugin_handle, LT_LOG_WARNING, message.data());
     }
 
     // Prints error message to LunarTear logs
     void LogError(std::string_view message){
-        API()->Log(s_handle, LT_LOG_ERROR, message.data());
+        API()->Log(plugin_handle, LT_LOG_ERROR, message.data());
     }
 
     // Prints verbose message to LunarTear logs
     void LogVerbose(std::string_view message){
-        API()->Log(s_handle, LT_LOG_VERBOSE, message.data());
+        API()->Log(plugin_handle, LT_LOG_VERBOSE, message.data());
     }
 }
