@@ -12,12 +12,11 @@ Currently only prints save data on loading a save file. I will add a .dll to the
 
 ## Build instructions
 
-To build a .dll from the source code, you must have the Lunar Tear source code saved in a subdirectory: `NierReplicantRando/third_party/LunarTearLoader/...`
+To build a .dll from the source code, you must have the Lunar Tear source code saved in a subdirectory: `NierReplicantRando/third_party/LunarTearLoader/...`. You must also have Visual Studio 2022 C++ build tools installed.
 
-Copy and paste the following commands into cmd:
+Navigate to the `NierReplicantRando` directory, then copy and paste the following commands into cmd:
 
 ```
-Remove-Item -Recurse -Force build -ErrorAction SilentlyContinue
 cmake -S . -B build -G "Visual Studio 17 2022" -A x64
 cmake --build build --config Release
 ```
