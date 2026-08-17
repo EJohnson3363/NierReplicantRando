@@ -1,13 +1,9 @@
 /******************** MAGIC ********************/
-// Magic I/O
+// Magic I/O for magic IDs 1-10 (Nier) or 1-12 (Kainé)
 //
 // TODO:
 // - HasMagic()
 // - GiveMagic()
-//
-// REFERENCE
-// Normal Nier: magic IDs 1-10
-// Kainé: magic IDs 1-12
 //
 /***********************************************/
 
@@ -20,5 +16,14 @@ namespace Game::Magic{
 
     void GiveMagic(uint32_t magicID){
         return;
+    }
+
+    bool IsMagicID(uint32_t magicID){
+        // Invalid
+        if(Game::Save::IsPlayerDataAvailable() == false || magicID > 127){
+            return false;
+        }
+        // Valid
+        return true;
     }
 }

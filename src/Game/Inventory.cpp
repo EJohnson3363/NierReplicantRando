@@ -14,7 +14,7 @@ namespace Game::Inventory{
         auto* game = LT::API()->game;
         auto* playerData = Game::Save::GetPlayerData();
 
-        return game->getPlayerItemCount(playerData, itemID);
+        return static_cast<uint32_t>(game->getPlayerItemCount(playerData, itemID));
     }
 
     bool HasItem(uint32_t itemID){
@@ -37,7 +37,7 @@ namespace Game::Inventory{
     uint32_t GiveItem(uint32_t itemID, uint8_t count){
         if(IsItemData(itemID) == false || count == 0){return 0;}
 
-        return Game::API::AddPlayerItem(itemID, count);
+        return static_cast<uint32_t>(Game::API::AddPlayerItem(itemID, count));
     }
 
     // High level
@@ -49,7 +49,7 @@ namespace Game::Inventory{
 
     bool IsItemData(uint32_t itemID){
         // Invalid
-        if(!Game::Save::IsPlayerDataAvailable() || itemID > 767){
+        if(Game::Save::IsPlayerDataAvailable() == false || itemID > 767){
             return false;
         }
         // Valid

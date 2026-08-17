@@ -1,9 +1,5 @@
 /******************** WORDS ********************/
-// Word I/O
-//
-// TODO:
-// - HasWord()
-// - GiveWord()
+// Word I/O for word IDs 0-127
 //
 /***********************************************/
 
@@ -11,10 +7,27 @@
 
 namespace Game::Words{
     bool HasWord(uint32_t wordID){
-        return false;
+        if(IsWordID(wordID) == false){
+            return false;
+        }
+
+        return Game::API::HasWord(wordID);
     }
 
-    void GiveWord(uint32_t wordID){
-        return;
+    bool GiveWord(uint32_t wordID){
+        if(IsWordID(wordID) == false){
+            return false;
+        }
+
+        return Game::API::SetWord(wordID, true);
+    }
+
+    bool IsWordID(uint32_t wordID){
+        // Invalid
+        if(Game::Save::IsPlayerDataAvailable() == false || wordID > 127){
+            return false;
+        }
+        // Valid
+        return true;
     }
 }

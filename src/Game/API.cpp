@@ -1,10 +1,10 @@
 /******************** API ********************/
 // Native API for interfacing with game files.
-// Has functionality not included in Lunar Tear's API:
+// Has functionality not included in Lunar Tear's prepackaged API:
 // - Adding/removing items from inventory
-//
-// TODO:
-// - Test AddPlayerItem() and RemovePlayerItem()
+// - Granting/upgrading weapons
+// - Granting magic abilities
+// - Setting questline flags
 //
 /*********************************************/
 
@@ -12,40 +12,121 @@
 
 // Private
 namespace{
-    // Addresses
-    constexpr uintptr_t ItemDataRVA         = 0x435B560;
-    constexpr uintptr_t AddPlayerItemRVA    = 0x3B4B60;
-    constexpr uintptr_t RemovePlayerItemRVA = 0x3B6DB0;
+    /* ADDRESSES */
 
-    // Defining in-game functions
-    using AddPlayerItemFn = uint64_t(*)(void*, uint32_t, uint8_t);
-    using RemovePlayerItemFn = uint64_t(*)(void*, uint32_t, uint8_t);
+    // Items
+    constexpr uintptr_t ItemData_addr         = 0x435B560;
+    constexpr uintptr_t AddPlayerItem_addr    = 0x3B4B60;
+    constexpr uintptr_t RemovePlayerItem_addr = 0x3B6DB0;
 
-    // Attaching functions to addresses
+    // Weapons
+    constexpr uintptr_t SetWeaponLevel_addr  = 0x3BE340;
+    constexpr uintptr_t GetWeaponIndex_addr  = 0x3B6830;
+    constexpr uintptr_t GetWeaponLevel_addr  = 0x3B6880;
+
+    // Words
+    constexpr uintptr_t HasWord_addr      = 0x3C6470;
+    constexpr uintptr_t SetWord_addr      = 0x3C6B10;
+    //constexpr uintptr_t calculateWordDrop = 0x41AC80;
+    //constexpr uintptr_t wordDropWrapper   = 0x41AC70;
+    //constexpr uintptr_t trySpawnWordDrop  = 0x2A40A0;
+    //constexpr uintptr_t spawnWordDrop     = 0x373200;
+
+    // Magic
+    constexpr uintptr_t SetMagicState_addr = 0x3BD940;
+
+    // Flags
+    constexpr uintptr_t IsGameFlag_addr  = 0x3B0B90;
+    constexpr uintptr_t SetGameFlag_addr = 0x3B0240;
+
+
+    /* DECLARATIONS */
+
+    // Items
+    using AddPlayerItem_funct = uint64_t(*)(void*, uint32_t, uint8_t);
+    using RemovePlayerItem_funct = uint64_t(*)(void*, uint32_t, uint8_t);
+
+    // Weapons
+    using SetWeaponLevel_funct = void(*)(PlayerSaveData*, uint32_t, int);
+
+    // Words
+    using HasWord_funct = bool(*)(void*, uint32_t);
+    using SetWord_funct = void(*)(void*, uint32_t, uint8_t);
+
+    // Magic
+
+
+    /* DEFINITIONS */
+
     uintptr_t GetAddress(uintptr_t rva){
         return LT::API()->game->processBaseAddress + rva;
     }
 
-    void* GetItemData(){
-        return reinterpret_cast<void*>(GetAddress(ItemDataRVA));
+    // Items
+    void* Get_ItemData(){
+        return reinterpret_cast<void*>(GetAddress(ItemData_addr));
     }
 
-    AddPlayerItemFn GetAddPlayerItem(){
-        return reinterpret_cast<AddPlayerItemFn>(GetAddress(AddPlayerItemRVA));
+    AddPlayerItem_funct Get_AddPlayerItem(){
+        return reinterpret_cast<AddPlayerItem_funct>(GetAddress(AddPlayerItem_addr));
     }
 
-    RemovePlayerItemFn GetRemovePlayerItem(){
-        return reinterpret_cast<RemovePlayerItemFn>(GetAddress(RemovePlayerItemRVA));
+    RemovePlayerItem_funct Get_RemovePlayerItem(){
+        return reinterpret_cast<RemovePlayerItem_funct>(GetAddress(RemovePlayerItem_addr));
     }
+
+    // Weapons
+    SetWeaponLevel_funct Get_SetWeaponLevel(){
+        return SetWeaponLevel_funct(GetAddress(SetWeaponLevel_addr));
+    }
+
+    // Words
+    HasWord_funct Get_HasWord(){
+        return HasWord_funct(GetAddress(HasWord_addr));
+    }
+
+    SetWord_funct Get_SetWord(){
+        return SetWord_funct(GetAddress(SetWord_addr));
+    }
+
+    // Magic
 }
 
 // Public
 namespace Game::API{
+    // Items
     uint32_t AddPlayerItem(uint32_t itemID, uint8_t count){
-        return static_cast<uint32_t>(GetAddPlayerItem()(GetItemData(), itemID, count));
+        return static_cast<uint32_t>(Get_AddPlayerItem()(Get_ItemData(), itemID, count));
     }
 
     uint32_t RemovePlayerItem(uint32_t itemID, uint8_t count){
-        return static_cast<uint32_t>(GetRemovePlayerItem()(GetItemData(), itemID, count));
+        return static_cast<uint32_t>(Get_RemovePlayerItem()(Get_ItemData(), itemID, count));
     }
+
+    // Weapons
+    bool SetWeaponLevel(uint32_t weaponID, uint32_t level){
+        if(weaponID >= 64 || level > 3){
+            return false;
+        }
+
+        Get_SetWeaponLevel()(Game::Save::GetPlayerData(), weaponID, static_cast<int>(level));
+        return true;
+    }
+
+    // Words
+    bool HasWord(uint32_t wordID){
+        return Get_HasWord()(nullptr, wordID);
+    }
+
+    bool SetWord(uint32_t wordID, bool enabled){
+        if(wordID >= 128){
+            return false;
+        }
+
+        Get_SetWord()(nullptr, wordID, enabled ? 1 : 0);
+        return true;
+    }
+
+    // Magic
+    //SetMagic()
 }

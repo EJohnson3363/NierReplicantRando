@@ -1,5 +1,5 @@
 /******************** FLAGS ********************/
-// Flag management
+// Flag management for flag IDs 0-2047
 //
 // TODO:
 // - FlagIsSet()
