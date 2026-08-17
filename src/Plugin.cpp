@@ -9,6 +9,9 @@
 // Lunar Tear by ifa-ifa:
 // https://github.com/ifa-ifa/Lunar-Tear/
 //
+// Utilizes IDs and data structures found by Acurisu:
+// https://github.com/Acurisu/NieR-Replicant-ver.1.22474487139/
+//
 /************************************************/
 
 #include "Game/Game.h"
