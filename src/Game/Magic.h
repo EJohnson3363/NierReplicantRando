@@ -13,7 +13,7 @@
 // Word management
 namespace Game::Magic{
     bool HasMagic(uint32_t magicID);
-    void GiveMagic(uint32_t magicID);
+    bool GiveMagic(uint32_t magicID);
 
     bool IsMagicID(uint32_t magicID);
 }

@@ -28,9 +28,10 @@ namespace Game::API{
     bool SetWord(uint32_t wordID, bool enabled);
 
     // Magic
-    //SetMagic(uint32_t magicID, bool enabled);
+    bool HasMagic(uint32_t magicID);
+    bool SetMagic(uint32_t magicID, bool enabled);
 
     // Flags
-    //bool IsGameFlag(uint32_t flagID);
-    //bool SetGameFlag(uint32_t flagID);
+    bool IsGameFlag(uint32_t flagID);
+    bool SetGameFlag(uint32_t flagID);
 }

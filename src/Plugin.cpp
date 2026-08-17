@@ -12,7 +12,7 @@
 /************************************************/
 
 #include "Game/Game.h"
-#include "Game/Words.h"
+#include "Game/Magic.h"
 // Should eventually include "Randomizer" files
 
 namespace{
@@ -25,12 +25,12 @@ namespace{
         // Call funct only when gameplay becomes active
         const bool isGameplayActive = Game::IsGameplayActive();
         if(isGameplayActive && !wasGameplayActive){
-            constexpr uint32_t ID = 40;
+            constexpr uint32_t ID = 8;
 
             // Test
-            const auto before = Game::Words::HasWord(ID);
-            const bool success = Game::Words::GiveWord(ID);
-            const auto afterGive = Game::Words::HasWord(ID);
+            const auto before = Game::Magic::HasMagic(ID);
+            const bool success = Game::Magic::GiveMagic(ID);
+            const auto afterGive = Game::Magic::HasMagic(ID);
 
             // Log
             LT::LogInfo(

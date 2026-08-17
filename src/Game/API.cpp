@@ -14,6 +14,8 @@
 namespace{
     /* ADDRESSES */
 
+    constexpr uintptr_t GameState_addr = 0x4348610;
+
     // Items
     constexpr uintptr_t ItemData_addr         = 0x435B560;
     constexpr uintptr_t AddPlayerItem_addr    = 0x3B4B60;
@@ -33,6 +35,7 @@ namespace{
     //constexpr uintptr_t spawnWordDrop     = 0x373200;
 
     // Magic
+    constexpr uintptr_t HasMagic_addr      = 0x3B0C20;
     constexpr uintptr_t SetMagicState_addr = 0x3BD940;
 
     // Flags
@@ -54,12 +57,22 @@ namespace{
     using SetWord_funct = void(*)(void*, uint32_t, uint8_t);
 
     // Magic
+    using HasMagic_funct = uint64_t(*)(void*, uint32_t);
+    using SetMagic_funct = void(*)(PlayerSaveData*, uint32_t, uint8_t);
+
+    // Flags
+    using IsGameFlag_funct = uint64_t(*)(void*, uint32_t);
+    using SetGameFlag_funct = void(*)(void*, uint32_t);
 
 
     /* DEFINITIONS */
 
     uintptr_t GetAddress(uintptr_t rva){
         return LT::API()->game->processBaseAddress + rva;
+    }
+
+    void* GetGameState(){
+        return reinterpret_cast<void*>(GetAddress(GameState_addr));
     }
 
     // Items
@@ -90,6 +103,22 @@ namespace{
     }
 
     // Magic
+    HasMagic_funct Get_HasMagic(){
+        return HasMagic_funct(GetAddress(HasMagic_addr));
+    }
+
+    SetMagic_funct Get_SetMagic(){
+        return SetMagic_funct(GetAddress(SetMagicState_addr));
+    }
+
+    // Flags
+    IsGameFlag_funct Get_IsGameFlag(){
+        return IsGameFlag_funct(GetAddress(IsGameFlag_addr));
+    }
+
+    SetGameFlag_funct Get_SetGameFlag(){
+        return SetGameFlag_funct(GetAddress(SetGameFlag_addr));
+    }
 }
 
 // Public
@@ -128,5 +157,34 @@ namespace Game::API{
     }
 
     // Magic
-    //SetMagic()
+    bool HasMagic(uint32_t magicID){
+        return Get_HasMagic()(nullptr, magicID);
+    }
+
+    bool SetMagic(uint32_t magicID, bool enabled){
+        if(magicID < 1 || magicID > 12){
+            return false;
+        }
+
+        Get_SetMagic()(Game::Save::GetPlayerData(), magicID, enabled ? 1 : 0);
+        return true;
+    }
+
+    // Flags
+    bool IsGameFlag(uint32_t flagID){
+        if(flagID > 2047){
+            return false;
+        }
+
+        return Get_IsGameFlag()(GetGameState(), flagID) != 0;
+    }
+
+    bool SetGameFlag(uint32_t flagID){
+        if(flagID > 2047){
+            return false;
+        }
+
+        Get_SetGameFlag()(GetGameState(), flagID);
+        return true;
+    }
 }
