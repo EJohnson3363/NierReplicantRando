@@ -1,5 +1,6 @@
 /******************** DATA/MAGIC ********************/
-// Magical ability data
+// Magical ability data for magic IDs 1-10 (Nier)
+// IDs 1-12 are associated with Kainé
 //
 // Utilizes definitions found by Acurisu:
 // https://github.com/Acurisu/NieR-Replicant-ver.1.22474487139/

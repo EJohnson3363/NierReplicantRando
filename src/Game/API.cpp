@@ -50,6 +50,7 @@ namespace{
     using RemovePlayerItem_funct = uint64_t(*)(void*, uint32_t, uint8_t);
 
     // Weapons
+    using GetWeaponLevel_funct = int32_t(*)(PlayerSaveData*, uint32_t);
     using SetWeaponLevel_funct = void(*)(PlayerSaveData*, uint32_t, int);
 
     // Words
@@ -89,6 +90,10 @@ namespace{
     }
 
     // Weapons
+    GetWeaponLevel_funct Get_GetWeaponLevel(){
+        return GetWeaponLevel_funct(GetAddress(GetWeaponLevel_addr));
+    }
+
     SetWeaponLevel_funct Get_SetWeaponLevel(){
         return SetWeaponLevel_funct(GetAddress(SetWeaponLevel_addr));
     }
@@ -133,6 +138,17 @@ namespace Game::API{
     }
 
     // Weapons
+    int32_t GetWeaponLevel(uint32_t weaponID){
+        if(weaponID >= 64){
+            return -1;
+        }
+
+        return Get_GetWeaponLevel()(
+            Game::Save::GetPlayerData(),
+            weaponID
+        );
+    }
+    
     bool SetWeaponLevel(uint32_t weaponID, uint32_t level){
         if(weaponID >= 64 || level > 3){
             return false;

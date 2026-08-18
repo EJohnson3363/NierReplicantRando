@@ -21,6 +21,7 @@ namespace Game::API{
     uint32_t RemovePlayerItem(uint32_t itemID, uint8_t count);
 
     // Weapons
+    int32_t GetWeaponLevel(uint32_t weaponID);
     bool SetWeaponLevel(uint32_t weaponID, uint32_t level);
 
     // Words

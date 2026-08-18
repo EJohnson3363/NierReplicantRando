@@ -1,35 +1,19 @@
-/******************** MAGIC ********************/
-// Magic I/O for magic IDs 1-10 (Nier).
-// Doesn't include IDs 11 or 12, which are associated with Kainé.
+/******************** GAME/MAGIC ********************/
+// Magical ability I/O
 //
-/***********************************************/
+// Utilizes IDs and data structures found by Acurisu:
+// https://github.com/Acurisu/NieR-Replicant-ver.1.22474487139/
+//
+/****************************************************/
 
 #include "Magic.h"
 
 namespace Game::Magic{
-    bool HasMagic(uint32_t magicID){
-        if(IsMagicID(magicID) == false){
-            return false;
-        }
-
-        return Game::API::HasMagic(magicID);
+    bool HasMagic(Ability ability){
+        return Game::API::HasMagic(static_cast<uint32_t>(ability));
     }
 
-    bool GiveMagic(uint32_t magicID){
-        if(IsMagicID(magicID) == false){
-            return false;
-        }
-
-        return Game::API::SetMagic(magicID, true);
-    }
-
-    // Doesn't currently accept Kainé's magic
-    bool IsMagicID(uint32_t magicID){
-        // Invalid
-        if(Game::Save::IsPlayerDataAvailable() == false || magicID > 10 || magicID < 1){
-            return false;
-        }
-        // Valid
-        return true;
+    bool GiveMagic(Ability ability){
+        return Game::API::SetMagic(static_cast<uint32_t>(ability), true);
     }
 }

@@ -1,55 +1,35 @@
-/******************** WEAPONS ********************/
-// Weapon I/O for weapon IDs 0-63
+/******************** GAME/WEAPONS ********************/
+// Weapon I/O
 //
-/*************************************************/
+// Utilizes IDs and data structures found by Acurisu:
+// https://github.com/Acurisu/NieR-Replicant-ver.1.22474487139/
+//
+/******************************************************/
 
 #include "Weapons.h"
 
 namespace Game::Weapons{
-    int32_t GetWeaponLevel(uint32_t weaponID){
-        // Invalid data
-        if(IsWeaponID(weaponID) == false){
-            return -1;
-        }
-
+    int32_t GetWeaponLevel(Weapon weapon){
         // Find weapon level
-        auto* playerData = Game::Save::GetPlayerData();
-        return playerData->weaponLevels[weaponID];
+        return Game::API::GetWeaponLevel(static_cast<uint32_t>(weapon));
     }
 
-    bool HasWeapon(uint32_t weaponID){
-        return GetWeaponLevel(weaponID) >= 0;
+    bool HasWeapon(Weapon weapon){
+        return GetWeaponLevel(weapon) >= 0;
     }
     
     // Low level
-    bool SetWeaponLevel(uint32_t weaponID, uint32_t level){
-        if(IsWeaponID(weaponID) == false || level > 3){
-            return false;
-        }
-
-        return Game::API::SetWeaponLevel(weaponID, level);
+    bool SetWeaponLevel(Weapon weapon, uint32_t level){
+        return Game::API::SetWeaponLevel(static_cast<uint32_t>(weapon), level);
     }
 
     // High level
-    bool GiveWeapon(uint32_t weaponID){
-        // Invalid
-        if(IsWeaponID(weaponID) == false){
-            return false;
-        }
+    bool GiveWeapon(Weapon weapon){
         // Weapon already owned (prevents accidental downgrading)
-        if(HasWeapon(weaponID)){
+        if(HasWeapon(weapon)){
             return true;
         }
         // Give unupgraded weapon
-        return SetWeaponLevel(weaponID, 0);
-    }
-
-    bool IsWeaponID(uint32_t weaponID){
-        // Invalid
-        if(Game::Save::IsPlayerDataAvailable() == false || weaponID > 63){
-            return false;
-        }
-        // Valid
-        return true;
+        return SetWeaponLevel(weapon, 0);
     }
 }

@@ -1,5 +1,5 @@
 /******************** DATA/WEAPONS ********************/
-// Weapon data
+// Weapon data for weapon IDs 0-50
 //
 // Utilizes definitions found by Acurisu:
 // https://github.com/Acurisu/NieR-Replicant-ver.1.22474487139/

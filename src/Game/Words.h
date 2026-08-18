@@ -1,19 +1,23 @@
-/******************** WORDS ********************/
-// Word I/O for word IDs 0-127
+/******************** GAME/WORDS ********************/
+// Word I/O
 //
-/***********************************************/
+// Utilizes IDs and data structures found by Acurisu:
+// https://github.com/Acurisu/NieR-Replicant-ver.1.22474487139/
+//
+/****************************************************/
 
 #pragma once
 
 #include <cstdint>
 
-#include "Save.h"
+#include "third_party/Player.hpp"
 #include "API.h"
 
 // Word management
 namespace Game::Words{
-    bool HasWord(uint32_t wordID);
-    bool GiveWord(uint32_t wordID);
+    bool HasWord(Words_Uloth word);
+    bool HasWord(Words_Zarken word);
 
-    bool IsWordID(uint32_t wordID);
+    bool GiveWord(Words_Uloth word);
+    bool GiveWord(Words_Zarken word);
 }

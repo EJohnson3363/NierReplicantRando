@@ -27,10 +27,12 @@ add_library(NierReplicantRando SHARED
   src/Data/Weapons.h
   src/Data/Words.h
   src/Data/Magic.h
+  src/Data/Flags.h
   src/Data/Locations.h
 
   src/Randomizer/Reward.h
   src/Randomizer/Location.h
+  src/Randomizer/State.h
 )
 
 target_include_directories(NierReplicantRando PRIVATE

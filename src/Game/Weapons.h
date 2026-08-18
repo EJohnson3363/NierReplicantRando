@@ -1,22 +1,23 @@
-/******************** WEAPONS ********************/
-// Weapon I/O for weapon IDs 0-63
+/******************** GAME/WEAPONS ********************/
+// Weapon I/O
 //
-/*************************************************/
+// Utilizes IDs and data structures found by Acurisu:
+// https://github.com/Acurisu/NieR-Replicant-ver.1.22474487139/
+//
+/******************************************************/
 
 #pragma once
 
 #include <cstdint>
 
-#include "Save.h"
+#include "third_party/Player.hpp"
 #include "API.h"
 
 // Weapon management
 namespace Game::Weapons{
-    int32_t GetWeaponLevel(uint32_t weaponID);
-    bool HasWeapon(uint32_t weaponID);
+    int32_t GetWeaponLevel(Weapon weapon);
+    bool HasWeapon(Weapon weapon);
     
-    bool SetWeaponLevel(uint32_t weaponID, uint32_t level); // Low level
-    bool GiveWeapon(uint32_t weaponID);                     // High level
-
-    bool IsWeaponID(uint32_t weaponID);
+    bool SetWeaponLevel(Weapon weapon, uint32_t level); // Low level
+    bool GiveWeapon(Weapon weapon);                     // High level
 }
