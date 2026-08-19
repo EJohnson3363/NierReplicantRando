@@ -1,20 +1,27 @@
 /******************** RANDO/STATE ********************/
-// Defines randomizer state (as opposed to game state) (WIP)
+// Tracks the current playthrough
 //
-/******************************************************/
+/*****************************************************/
 
 #pragma once
 
-#include <cstdint>
 #include <unordered_set>
+
+#include "Data/Locations.h"
+#include "Reward.h"
 
 namespace Randomizer{
     class State{
     public:
-        bool IsChecked(uint32_t locationID) const;
-        void SetChecked(uint32_t locationID);
+        bool IsChecked(Data::Locations::ID location) const;
+        void SetChecked(Data::Locations::ID location);
+
+        bool HasReward(const Reward& reward) const;
+        void AddReward(const Reward& reward);
+
+        void Reset();
 
     private:
-        std::unordered_set<uint32_t> m_checkedLocations;
+        std::unordered_set<Data::Locations::ID> checkedLocations;
     };
 }

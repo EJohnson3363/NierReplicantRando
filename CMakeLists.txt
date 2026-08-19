@@ -31,8 +31,11 @@ add_library(NierReplicantRando SHARED
   src/Data/Locations.h
 
   src/Randomizer/Reward.h
-  src/Randomizer/Location.h
-  src/Randomizer/State.h
+  src/Randomizer/Randomizer.cpp
+  src/Randomizer/Placement.h
+  src/Randomizer/Pool.cpp
+  src/Randomizer/State.cpp
+  src/Randomizer/Logic.h
 )
 
 target_include_directories(NierReplicantRando PRIVATE
