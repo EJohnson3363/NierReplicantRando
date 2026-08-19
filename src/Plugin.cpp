@@ -6,13 +6,13 @@
 // Lunar Tear by ifa-ifa:
 // https://github.com/ifa-ifa/Lunar-Tear/
 //
-// Utilizes IDs and data structures found by Acurisu:
+// IDs and data structures found by Acurisu:
 // https://github.com/Acurisu/NieR-Replicant-ver.1.22474487139/
 //
 /************************************************/
 
 #include "Game/Game.h"
-// Should eventually include "Randomizer" files
+#include "Randomizer/Randomizer.h"
 
 namespace{
     bool wasGameplayActive = false;
@@ -24,7 +24,7 @@ namespace{
         // Call funct only when gameplay becomes active
         const bool isGameplayActive = Game::IsGameplayActive();
         if(isGameplayActive && !wasGameplayActive){
-            // funct
+            TestRandomizer();
         }
         wasGameplayActive = isGameplayActive;
 
@@ -38,7 +38,7 @@ namespace{
 extern "C" __declspec(dllexport)
 void LunarTearPluginInit(const LunarTearAPI* api, LT_PluginHandle handle){
     LT::LT_Init(api, handle);
-    LT::LogInfo("=== Randomizer plugin starting ===");
+    LT::LogInfo("Randomizer plugin started succesfully");
 
     Game::Game_Init();
     LT::QueuePhaseUpdate(Update, nullptr);

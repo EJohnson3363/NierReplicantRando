@@ -1,26 +1,9 @@
-/******************** RANDO/RANDOMIZER ********************/
-// Generates a seed
+/******************** RANDOMIZER ********************/
+// Defines the main randomizer function that interfaces
+// with all other randomizer files
 //
 /**********************************************************/
 
 #pragma once
 
-#include <unordered_set>
-#include <algorithm>
-#include <random>
-
-#include "Placement.h"
-#include "Pool.h"
-
-namespace Randomizer{
-    class Generator{
-    public:
-        explicit Generator(uint32_t seed);
-
-        std::vector<Placement> Generate(const RewardPool& rewards,
-            const LocationPool& locations, uint32_t seed);
-
-    private:
-        uint32_t seed;
-    };
-}
+void TestRandomizer();
