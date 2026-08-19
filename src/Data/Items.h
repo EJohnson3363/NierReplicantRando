@@ -45,7 +45,7 @@ namespace Data::Items{
         {27, "Spirit Drop",      Type::Recovery},	// 0x4374AFB
         {28, "Spirit Capsule",   Type::Recovery},	// 0x4374AFC
         {31, "Antidotal Weed",   Type::Recovery},	// 0x4374AFF
-        {33, "Smelling Salts",   Type::Recovery},
+        {33, "Smelling Salts",   Type::Recovery},   // unreleased
         
         {29, "Speed Fertilizer",         Type::Cultivation},	// 0x4374B09
         {42, "Flowering Fertilizer",     Type::Cultivation},	// 0x4374B0A
@@ -160,7 +160,7 @@ namespace Data::Items{
         {190, "Broken Battery",       Type::RawMaterial},	// 0x4374B9E
         {191, "Mysterious Switch",    Type::RawMaterial},	// 0x4374B9F
         {192, "Large Gear",           Type::RawMaterial},	// 0x4374BA0
-        {193, "Titanium Alloy",     Type::RawMaterial},	    // 0x4374BA1
+        {193, "Titanium Alloy",       Type::RawMaterial},	// 0x4374BA1
         {194, "Memory Alloy",         Type::RawMaterial},	// 0x4374BA2
         {195, "Rusted Clump",         Type::RawMaterial},	// 0x4374BA3
         {196, "Machine Oil",          Type::RawMaterial},	// 0x4374BA4
@@ -214,18 +214,18 @@ namespace Data::Items{
         {257, "Star Key",                 Type::KeyItem},	// 0x4374BE1
         {258, "Light Key",                Type::KeyItem},	// 0x4374BE2
         {259, "Darkness Key",             Type::KeyItem},	// 0x4374BE3
-        {260, "Fine Flour",               Type::KeyItem},	// 0x4374BE4
-        {261, "Coarse FLour",             Type::KeyItem},	// 0x4374BE5
-        {262, "Perfume Bottle",           Type::KeyItem},	// 0x4374BE6
+        {260, "Fine Flour",               Type::KeyItem},	// 0x4374BE4 unreleased
+        {261, "Coarse FLour",             Type::KeyItem},	// 0x4374BE5 unreleased
+        {262, "Perfume Bottle",           Type::KeyItem},	// 0x4374BE6 unreleased
         {263, "Postman's Parcel",         Type::KeyItem},	// 0x4374BE7
-        {264, "Lover's Letter",           Type::KeyItem},	// 0x4374BE8
-        {265, "Water Filter",             Type::KeyItem},	// 0x4374BE9
+        {264, "Lover's Letter",           Type::KeyItem},	// 0x4374BE8 unreleased
+        {265, "Water Filter",             Type::KeyItem},	// 0x4374BE9 unreleased
         {266, "Royal Compass",            Type::KeyItem},	// 0x4374BEA
         {267, "Vapor Moss",               Type::KeyItem},	// 0x4374BEB
-        {268, "Valley Spider Silk",       Type::KeyItem},	// 0x4374BEC
-        {269, "Animal Guidebook",         Type::KeyItem},	// 0x4374BED
-        {270, "Ore Guidebook",            Type::KeyItem},	// 0x4374BEE
-        {271, "Plant Guidebook",          Type::KeyItem},	// 0x4374BEF
+        {268, "Valley Spider Silk",       Type::KeyItem},	// 0x4374BEC unreleased
+        {269, "Animal Guidebook",         Type::KeyItem},	// 0x4374BED unreleased
+        {270, "Ore Guidebook",            Type::KeyItem},	// 0x4374BEE unreleased
+        {271, "Plant Guidebook",          Type::KeyItem},	// 0x4374BEF unreleased
         {272, "Red Book",                 Type::KeyItem},	// 0x4374BF0
         {273, "Blue Book",                Type::KeyItem},	// 0x4374BF1
         {274, "Old Lady's Elixer",        Type::KeyItem},	// 0x4374BF2
@@ -238,29 +238,29 @@ namespace Data::Items{
         {281, "Drifting Cargo",           Type::KeyItem},	// 0x4374BF9
         {282, "Drifting Cargo 2",         Type::KeyItem},	// 0x4374BFA
         {283, "Drifting Cargo 3",         Type::KeyItem},	// 0x4374BFB
-        {284, "Drifting Cargo 4",         Type::KeyItem},	// 0x4374BFC
-        {285, "Old Package",              Type::KeyItem},	// 0x4374BFD
+        {284, "Drifting Cargo 4",         Type::KeyItem},	// 0x4374BFC unreleased
+        {285, "Old Package",              Type::KeyItem},	// 0x4374BFD unreleased
         {286, "Mermaid Tear",             Type::KeyItem},	// 0x4374BFE
         {287, "Mandrake Leaf",            Type::KeyItem},	// 0x4374BFF
-        {288, "Energizer",                Type::KeyItem},	// 0x4374C00
+        {288, "Energizer",                Type::KeyItem},	// 0x4374C00 unreleased
         {289, "Toad Oil",                 Type::KeyItem},	// 0x4374C01
-        {290, "Sleep-B-Gone",             Type::KeyItem},	// 0x4374C02
+        {290, "Sleep-B-Gone",             Type::KeyItem},	// 0x4374C02 unreleased
         {291, "Antidote",                 Type::KeyItem},	// 0x4374C03
-        {292, "Gold Bracelet",            Type::KeyItem},	// 0x4374C04
+        {292, "Gold Bracelet",            Type::KeyItem},	// 0x4374C04 unreleased
         {293, "Elite Kitchen Knife",      Type::KeyItem},	// 0x4374C05
         {294, "Elevator Parts",           Type::KeyItem},	// 0x4374C06
         {295, "Dirty Treasure Map",       Type::KeyItem},	// 0x4374C07
         {296, "Restored Treasure Map",    Type::KeyItem},	// 0x4374C08
         {297, "Jade Hair Ornament",       Type::KeyItem},	// 0x4374C09
         {298, "Employee List",            Type::KeyItem},	// 0x4374C0A
-        {299, "Small Safe",               Type::KeyItem},	// 0x4374C0B
-        {300, "Safe Key",                 Type::KeyItem},	// 0x4374C0C
+        {299, "Small Safe",               Type::KeyItem},	// 0x4374C0B unreleased
+        {300, "Safe Key",                 Type::KeyItem},	// 0x4374C0C unreleased
         {301, "Great Tree Root",          Type::KeyItem},	// 0x4374C0D
         {302, "Eye of Power",             Type::KeyItem},	// 0x4374C0E
-        {303, "Ribbon",                   Type::KeyItem},	// 0x4374C0F
+        {303, "Ribbon",                   Type::KeyItem},	// 0x4374C0F unreleased
         {304, "Yonah's Ribbon",           Type::KeyItem},	// 0x4374C10
         {305, "Bronze Key",               Type::KeyItem},	// 0x4374C11
-        {306, "Brass Key",                Type::KeyItem},	// 0x4374C12
+        {306, "Brass Key",                Type::KeyItem},	// 0x4374C12 unreleased
         {307, "Boar Tusk",                Type::KeyItem},	// 0x4374C13
         {308, "Pressed Freesia",          Type::KeyItem},	// 0x4374C14
         {309, "Potted Freesia",           Type::KeyItem},	// 0x4374C15
@@ -279,16 +279,70 @@ namespace Data::Items{
         {322, "RA Keycard",               Type::KeyItem},	// 0x4374C22
         {323, "WA Keycard",               Type::KeyItem},	// 0x4374C23
         {324, "Cultivator's Handbook",    Type::KeyItem},	// 0x4374C24
-        {325, "Red Bag",                  Type::KeyItem},	// 0x4374C25
-        {326, "Lantern",                  Type::KeyItem},	// 0x4374C26
-        {327, "Empty Lantern",            Type::KeyItem},	// 0x4374C27
-        {328, "Hold Key",                 Type::KeyItem},   // 0x4374C28
-        {329, "Passageway Key",           Type::KeyItem},	// 0x4374C29
-        {330, "Goat Key",                 Type::KeyItem},	// 0x4374C2A
-        {331, "Lizard Key",               Type::KeyItem},	// 0x4374C2B
-        {332, "Unlocking Procedure Memo", Type::KeyItem},   // 0x4374C2C
-        {333, "Red Jewel",                Type::KeyItem},	// 0x4374C2D
-        {334, "Red Flowers",              Type::KeyItem},   // 0x4374C2E
-        {335, "Apples",                   Type::KeyItem},	// 0x4374C2F
+        {325, "Red Bag",                  Type::KeyItem},	// 0x4374C25 1.22
+        {326, "Lantern",                  Type::KeyItem},	// 0x4374C26 1.22
+        {327, "Empty Lantern",            Type::KeyItem},	// 0x4374C27 1.22 unreleased
+        {328, "Hold Key",                 Type::KeyItem},   // 0x4374C28 1.22
+        {329, "Passageway Key",           Type::KeyItem},	// 0x4374C29 1.22
+        {330, "Goat Key",                 Type::KeyItem},	// 0x4374C2A 1.22 unreleased
+        {331, "Lizard Key",               Type::KeyItem},	// 0x4374C2B 1.22 unreleased
+        {332, "Unlocking Procedure Memo", Type::KeyItem},   // 0x4374C2C 1.22 unreleased
+        {333, "Red Jewel?",               Type::KeyItem},	// 0x4374C2D 1.22
+        {334, "Red Flowers",              Type::KeyItem},   // 0x4374C2E 1.22 [2231600]NoText
+        {335, "Apples",                   Type::KeyItem},	// 0x4374C2F 1.22 [2231700]NoText
+
+        /*
+        DOCUMENTS:
+        "Look At The Sky"	Documents	
+        "Don’t Try So Hard"	Documents	
+        "My Birthday"	Documents	
+        Love Letter 2/12/3340	Documents	
+        Love Letter 3/28/3340	Documents	
+        Love Letter 5/1/3340	Documents	
+        Letter From The Mayor	Documents	
+        The Postman's Request	Documents	Unreleased
+        The Postman's Thanks	Documents	Unreleased
+        Invitation from a Stranger	Documents	Unreleased
+        Grand Re-Opening Notice	Documents	Unreleased
+        Wedding Invitation	Documents	
+        Letter from the King	Documents	Unreleased
+        Underground Research Record 1	Documents	
+        Underground Research Record 2	Documents	
+        Underground Research Record 3	Documents	
+        Underground Research Record 4	Documents	
+        Letter to the Chief	Documents	Unreleased
+        Letter to Two Brothers Weaponry	Documents	Unreleased
+        Letter to Popola	Documents	
+        Letter to a Faraway Lover	Documents	
+        Letter from Emil	Documents	
+        Weapon Upgrade Notice	Documents	
+        Letter from the Chief of The Aerie	Documents	
+        Project Gestalt Report 0923	Documents	
+        Project Gestalt Report 9182	Documents	
+        Project Gestalt Report 10432	Documents	
+        Project Gestalt Report 11242	Documents	
+        
+        MAPS:
+        World Map	Maps	
+        Village Map	Maps	
+        Lost Shrine Area Map	Maps	Unreleased
+        Lost Shrine Map	Maps	
+        The Aerie Map	Maps	
+        Seafront Map	Maps	
+        Desert Map	Maps	
+        Façade Map	Maps	
+        Barren Temple Map	Maps	
+        Junk Heap Area Map	Maps	
+        Junk Heap Map	Maps	
+        Manor Map	Maps	
+        Forest Of Myth Map	Maps	
+        Underground Facility Map	Maps	
+        Shadowlord's Castle Map	Maps	
+        Northern Plains Map	Maps	
+        Southern Plains Map	Maps	
+        Eastern Road Map	Maps	
+        Beneath the Forest of Myth Map	Maps	Unreleased
+        Tokyo Map	Maps	Unreleased
+        */
     };
 }
